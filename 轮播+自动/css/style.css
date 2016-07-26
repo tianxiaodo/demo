@@ -1,0 +1,43 @@
+@charset "utf-8";
+.header-wrap{height: 42px; text-align: center;line-height: 42px; border-bottom: 1px solid #acacac;background: #fff}
+/*banner*/
+.slide{ width: 100%; height: 226px; position: relative;
+    overflow: hidden; }
+.slide-main,.slide-img{ height: 226px; }
+.slide-img.animation{  }
+.slide-img{ float: left;background: #000 }
+.slide-img img{ width: 100%;height: 100%; vertical-align: top;
+    -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1),rgba(0,0,0,0.1));}
+#get-item{ width:100%; height: 10px; position: absolute; z-index: 111;
+    bottom: 80px; left:0; text-align: center; }
+#get-item a{ display:inline-block; width: 10px; height: 10px;
+    margin:0 3px;background: #d7d6d8;
+    border-radius: 50%;text-indent: -9999px;}
+#get-item a.cur{ background: #fff; }
+.slider_bg{width:100%;height:10px;
+    -webkit-transform:translateY(-100%);
+    background: url(http://i1.huzhushan.yongche.org/u/images/201502/2501839773.png?1426105560) 0 bottom no-repeat;
+    background-size:100% 100%;}
+.fujin{width:100%;text-align: center;color: #fff; font-size:0.65em; position: absolute;
+z-index: 131; left: 0; bottom: 48px;
+}
+.touxiang{ width: 50px; height:50px;
+    position: absolute; bottom: 48px; right: 5%; border-radius: 50px;
+}
+.touxiang img{ width: 100%; height: 100%; border-radius: 50px;}
+/*icon*/
+.icons{ width: 90%;background:#fff;
+    -webkit-box-sizing:border-box;
+    border:1px solid #787878;margin: 0 auto;padding-top: 18px;
+    -webkit-transform:translateY(-13%);
+}
+.icons li{-webkit-box-sizing:border-box;width:50%;
+    text-align: center; height:90px; display: inline-block;}
+.icons h3{padding:10px 0 20px 0}
+.plate img{max-width:66px;}
+/*footer*/
+.foot-tel{width:100%;background:#fff; padding:13px 0;font-size:15px;
+    text-align: center;}
+.foot-tel .rq{color:#ec4949;}
+
+

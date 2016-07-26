@@ -1,0 +1,10 @@
+body,div,span,img,a{margin:0;padding:0;outline: none;border:none;}
+body,html{min-height:100%;background:black;}
+.slide{width:100%;height:200px;overflow: hidden;position:relative;}
+.slide-main,.slide-img{height:200px;}
+.slide-img.animation{ }
+.slide-img{float: left}
+.slide-main img {width:100%;vertical-align: top;}
+#get-item{ width:100%;height:12px;bottom:15px;left:0;position: absolute;z-index: 111;text-align: center;}
+#get-item a{display:inline-block;box-shadow:0 0 4px 1px #333;width:12px;height: 12px;margin:0 8px;border-radius:100%;background-color: #fff;}
+#get-item a.cur{background:#df3031 }		

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>店面简图</title>
+		<link rel="stylesheet" type="text/css" href="slide.css">
+	</head>
+
+	<body>
+		<!--<div class="slide" id="hotSlide">
+			<div class="slide-main" id="mainContent">
+				<div class="slide-img">
+					<img src="images/1.png" />
+				</div>
+				<div class="slide-img">
+					<img src="images/2.png" />
+				</div>
+				<div class="slide-img">
+					<img src="images/3.png" />
+				</div>
+				<div class="slide-img">
+					<img src="images/4.png" />
+				</div>
+
+			</div>
+			<div id="get-item">
+				<a class="cur" href="javascript:;"></a><a
+					href="javascript:;"></a> <a
+					href="javascript:;"></a> <a  href="javascript:;"></a>
+			</div>
+		</div>
+		-->
+	</body>
+	<script type="text/javascript" charset="utf-8" src="slide.js" ></script>
+	<script type="text/javascript" charset="utf-8">
+		var imgUrl=["images/1.png","images/2.png","images/3.png","images/4.png","images/5.jpg"];
+		hotSlide.newClass(imgUrl);//添加参数后会自动生成DOM节点，不输入参数则需要手写html代码
+		document.body.addEventListener("click",function(){alert("body");});
+	</script>
+</html>

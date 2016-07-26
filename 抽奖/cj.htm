@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>抽奖页面</title>
+    <style>
+
+		*{margin: 0;padding: 0;}
+		#divZp{width:300px;height:300px;margin:100px auto;position:relative;}
+		img{width:300px;height:300px;transform: rotate(1deg);}
+		
+		#divZ{width:2px;background:black;height:150px;left:149px;position:absolute;}
+    </style>
+</head>
+<body>
+	
+	<div id="divZp" >
+		<div id="divZ">	</div>
+		<img  src="cj.png" alt=" " />
+	</div>
+	
+</body>
+	<script>
+		var body=document.body;
+
+		body.onclick=function(){
+			init();
+			start();
+		}
+		var dzp=document.getElementById("divZp");
+		
+		var zp={
+			hasPrototype:false,
+			newClass:function(){
+			
+			},
+			bindEvent:function(){
+			
+			},
+			init:function(){
+			
+			}
+		
+		}
+		var gl=[1,4,5,90];
+		var range=[0,90,180,270,360];
+		var index,rotate,rotateNow;
+		//var rotate=360*50+random(range[index]+1,range[index+1]);
+		//var rotateNow=0;
+		
+		function init(){
+			
+			 index=getIndex(gl);
+			 rotate=-360*50-random(range[index]+1,range[index+1]);
+			 rotateNow=0;
+			function getIndex(gl)
+			{	
+				var r=parseInt(Math.random()*100+1);
+				console.log(r);
+				function getSum(n){
+					if(n==0)
+					{
+						return gl[0];
+					}
+					else{
+						return gl[n]+getSum(n-1);
+					}
+				}
+				for(var i=0;i<gl.length;i++)
+				{	
+					var sum=getSum(i);
+					
+					if(r<=sum)
+					{
+						console.log(i);
+						return i;
+					}
+				}
+				
+			}
+		}
+		
+		function getSum(gl,n){
+			if(n==0)
+			{
+				return gl[0]
+			}
+			else{
+				return gl[n]+gl[n-1];
+			}
+		}
+		
+		 function random(min,max){
+			return Math.floor(min+Math.random()*(max-min));
+		}
+		
+		//var rotate=Math.floor(Math.random()*10000)+5000;
+		//rotate=rotate%90==0?rotate+1:rotate;
+		
+		function start(){
+				var transform=getComputedStyle(dzp.getElementsByTagName("img")[0]);
+				step();
+				dzp.timer=window.setTimeout(step,13);
+		}
+		
+		function step(){
+			var sd=(rotate-rotateNow)/90;
+			if(parseInt(sd)<0){
+				rotateNow+=sd;
+				dzp.getElementsByTagName("img")[0].style["transform"]="rotate("+rotateNow+"deg)"
+				dzp.timer=window.setTimeout(step,13);
+			}
+			else
+			{
+				window.clearTimeout(dzp.timer);
+			}
+		}
+		
+	</script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>易到用车</title>
+    <!--viewport并非Safari的私有属性，width用于指定宽度，initial-scale指定初始化的缩略比例，minimum-scale指定缩小的比例，而maximum-scale则是放大的比例，当然这些缩放都取决于user-scalable——决定用户是否能缩放页面-->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--全屏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--改变状态栏-->
+    <meta name="format-detection" content="telephone=no">
+    <!--自动检测在网页中可能出现的电话号码-->
+    <link href="css/reset.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+</head>
+<body style="background: #f0f0f0">
+<header class="header-wrap">
+    易到用车
+</header>
+<!--banner-->
+<div class="slide" id="hotSlide">
+    <div class="slide-main" id="mainContent">
+        <div class="slide-img animation"><img src="images/img (1).jpeg" /></div>
+        <div class="slide-img"><img src="images/img (2).jpeg" /></div>
+        <div class="slide-img"><img src="images/img (3).jpeg" /></div>
+
+    </div>
+    <div id="get-item">
+        <a class="cur" href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
+    </div>
+    <p class="fujin">附近有<span id="car_num">4951</span>辆车可提供服务</p>
+    <p class="touxiang"><img src="images/lei.jpg"/></p>
+</div>
+<div class="slider_bg">
+    <div></div>
+</div>
+<!--icon-->
+<section class="icons">
+    <ul>
+        <li>
+            <div class="plate">
+                <a onclick="">
+                    <img src="images/1487634180.png" width="23%">
+                </a>
+            </div>
+            <h3><a onclick="">马上用车</a></h3>
+        </li><li>
+            <div class="plate"><a onclick=""><img src="images/2301908929.png" width="23%"></a>
+            </div>
+            <h3><a onclick="">预约用车</a></h3>
+        </li><li>
+            <div class="plate"><a onclick=""><img src="images/626913289.png" width="23%"></a>
+            </div>
+            <h3><a onclick="">接送机</a></h3>
+        </li><li>
+            <div class="plate"><a onclick=""><img src="images/icon4.png" width="23%"></a>
+            </div>
+            <h3><a onclick="">接送站</a></h3>
+        </li><li>
+            <div class="plate"><a onclick=""><img src="images/icon5.png" width="23%"></a>
+            </div>
+            <h3><a onclick="">日租</a></h3>
+        </li><li>
+            <div class="plate"><a onclick=""><img src="images/icon6.png" width="23%"></a>
+            </div>
+            <h3><a onclick="">半日租</a></h3>
+        </li>
+
+    </ul>
+</section>
+<!--footer-->
+<footer class="foot-tel">
+    贴心服务：<span class="rq">400-1111-777</span>
+</footer>
+</body>
+</html>
+<script src="js/banner.js" type="text/javascript"></script>
+

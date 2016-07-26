@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no,minimal-ui">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/master.css" />
+	<script src="js/tween.js" ></script>
+</head>
+<body style="height: 100%;">
+<div class="main">
+		<div id="divSprite" class="sprite-wrapper">
+			<img src="images/word-xi-img.png"    target="18" class="sprite-word-xi">
+			<img src="images/word-che-img.png"   target="12" class="sprite-word-che">
+			<img src="images/word-juan-img.png"  target="17" class="sprite-word-juan">
+			<img src="images/word-xian-img.png"  target="56" class="sprite-word-xian">
+			<img src="images/word-liang-img.png" target="56" class="sprite-word-liang">
+			<img src="images/word-qiang-img.png" target="60" class="sprite-word-qiang">
+			<img src="images/icon-img-qian.png"  class="sprite-word-qian-icon">
+			
+			<div class="icon-bk-radius-1"></div>
+			<div class="icon-bk-radius-2"></div>
+			<div class="icon-bk-radius-3"></div>
+			<div class="icon-bk-radius-4"></div>
+			<div class="icon-bk-radius-5"></div>
+  </div>
+		<div id="divMoney" class="money-wrapper">
+			<img src="images/shelter-bj.png" class="money-img-shelter-bj">
+			<img src="images/shelter-bj-qian.png" class="money-img-shelter-bj-qian">
+
+			<img src="images/hua-icon-1.png" class="hua-icon-1">
+			<img src="images/hua-icon-2.png" class="hua-icon-2">
+			<img src="images/hua-icon-3.png" class="hua-icon-3">
+
+			<img src="images/qianbao.png" target="13" class="img-qianbao pack">
+			<img src="images/qianbao.png" target="22" class="img-qianbao-1 pack">
+			<img src="images/qianbao.png" target="16" class="img-qianbao-2 pack">
+			<img src="images/qianbao.png" target="17" class="img-qianbao-3 pack">
+			<img src="images/money-02-icon.png" target="12" class="img-money-02-icon pack">
+			<img src="images/money-01-icon.png" target="15" class="img-money-01-icon pack">
+			<img src="images/money-01-icon.png" target="20" class="img-money-01-icon-1 pack">
+			<img src="images/money-03-icon.png" target="20" class="img-money-03-icon pack">
+
+			<img src="images/icon-img-dd1.png" class="icon-img-dd1">
+			<img src="images/icon-img-dd4.png" class="icon-img-dd4">
+			<img src="images/icon-img-dd5.png" class="icon-img-dd5">
+			
+			<div class="enter-input"><input type="tel" name="tel" value="" placeholder="请输入电话号码"></div>
+			<div class="btn-input"><a href="#"><img alt="btn" src="images/lqhb-btn.png"></a></div>
+		</div>
+		<div id="divPrize" class="prize-wrapper">
+			<img src="images/zjym-xf-hbj-img.png" class="money-img-zjym-xf-hbj-img">
+			<img src="images/zjym-xf-qbj-img.png" class="money-img-zjym-xf-qbj-img">
+			<div class="prize-main">
+				<div class="prize-main-pop">
+					<img src="images/zjym-xf-zj-bj-img.png" class="money-img-zjym-xf-zj-bj-img">
+					<div class="h1"><span>20</span>元</div>
+				</div>
+			</div>
+			<div class="get-text">恭喜你，抢到20元红包</div>
+			<div class="explain-text">已放入您的e洗车账户,快分享给好友吧。</div>
+			<div class="btn-input-xzExc"><a href="#"><img src="images/xzExc-btn.png"></a></div>
+			
+			<img src="images/icon-img-dd1.png" class="icon-img-dd1">
+			<img src="images/icon-img-dd2.png" class="icon-img-dd2">
+			<img src="images/icon-img-dd3.png" class="icon-img-dd3">
+			
+		</div>
+</div>
+</body>
+<script type="text/javascript">
+		var winWidth=window.innerWidth,winHeight=window.innerHeight;
+		var divSprite=document.getElementById("divSprite");
+		var spriteImgs=divSprite.getElementsByTagName("img");
+		
+		var divMoney=document.getElementById("divMoney");
+		var packImgs=divMoney.getElementsByClassName("pack");
+		window.onload=function(){
+		
+			var divSpritStyle=getComputedStyle(divSprite);
+			var divMoneyStyle=getComputedStyle(divMoney);
+			var divMoneyTop=divMoney.offsetTop;
+			for(var i=0;i<spriteImgs.length-1;i++)
+			{
+				(function(i){	
+					var time=i==5?1700:(i+1)*150;
+					window.setTimeout(function(){
+							var target=parseFloat(spriteImgs[i].attributes["target"].nodeValue)/100;
+							if(i!=5)
+							{
+								animate(spriteImgs[i],{top:parseFloat(divSpritStyle["height"])*target},1000,["zfBounce","easeOut"],function(){
+								});
+							}
+							else
+							{
+								animate(spriteImgs[i],{left:window.innerWidth*target},1500,["Elastic","easeOut"]);
+							}
+						},time);
+				})(i);
+			}
+			
+			for(var j=0;j<packImgs.length;j++)
+			{
+				(function(i){
+					var time=Math.random()*1000+2200;
+					var target=parseFloat(divMoneyStyle["height"])*parseFloat(packImgs[i].attributes["target"].nodeValue)/100;
+					
+					window.setTimeout(function(){
+						animate(packImgs[i],{top:target},500,["zfLinear"]);
+					
+					},time);
+				
+				})(j);
+				
+			}
+		}
+		var aGetBonus=divMoney.getElementsByTagName("a")[0];
+		var phoneNumber=document.getElementById("phoneNumber");
+		divMoney.addEventListener("click",function(e){
+			if(e.target.alt=="btn")
+			{
+				this.style["display"]="none";
+				document.getElementById("divPrize").style.display="block"
+				var prize=document.getElementsByClassName("prize-main-pop")[0];
+				animate(prize,{top:0},500,["zfLinear"]);
+			}
+		
+		});
+</script>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>抽奖页面</title>
+    <style>
+
+		*{margin: 0;padding: 0;}
+		#divZp{width:300px;height:300px;margin:100px auto;position:relative;}
+		img{width:300px;height:300px;transform: rotate(1deg);}
+		#divZ{width:2px;background:black;height:150px;left:149px;position:absolute;}
+    </style>
+</head>
+<body>
+	
+	<div id="divZp" >
+		<div id="divZ">	</div>
+		<img  src="cj.png" alt=" " />
+	</div>
+	
+</body>
+	<script>
+
+		var zp={
+			hasPrototype:false,
+			newClass:function(chanceArr,offset,callback){
+				if(!this.hasPrototype)
+				{
+					this.init.prototype=zp;
+					this.hasPrototype=true;
+				}
+				return new this.init(chanceArr,offset,callback);
+			},
+			bindEvent:function(){
+				var _this=this;
+				this.dzp.addEventListener("touchstart",function(e){
+					
+					if(!_this.step){
+						_this.step=function(){
+							var sd=(_this.rotate-_this.rotateNow)/60;
+							if(sd*20<-0.5){
+								_this.rotateNow+=sd;
+								_this.dzp.getElementsByTagName("img")[0].style["transform"]="rotate("+_this.rotateNow+"deg)"
+								_this.timer=window.setTimeout(_this.step,13);
+							}
+							else
+							{
+								_this.dzp.getElementsByTagName("img")[0].style["transform"]="rotate("+_this.rotate+"deg)"
+								window.clearTimeout(_this.timer);
+								_this.key=1;
+								if(_this.callback)
+								{
+									_this.callback.call(_this);
+								}
+							}
+						}
+					}
+					if(_this.key)
+					{	
+						_this.key=0;
+						_this.rotateNow=0;
+						_this.rotate=-360*8+offset-_this.random(_this.index*360/_this.chanceArr.length+1,(_this.index+1)*360/_this.chanceArr.length);
+						_this.dzp.getElementsByTagName("img")[0].style["transform"]="rotate(0deg)"
+						_this.step();
+					}
+					
+				},false);
+			},
+			init:function(chanceArr,offset,callback){
+				this.key=1;
+				this.chanceArr=chanceArr;
+				this.offset=offset;
+				this.index=this.getIndex();
+				this.dzp=document.getElementById("divZp");
+				if(typeof callback=="function")
+				{
+					this.callback=callback;
+				}
+				this.bindEvent();
+			},
+			getIndex:function(){
+				var r=parseInt(Math.random()*100+1);
+				for(var i=0;i<this.chanceArr.length;i++)
+				{	
+					var sum=this.getSum(i);
+					
+					if(r<=sum)
+					{
+						return i;
+					}
+				}
+			},
+			getSum:function(index){
+				if(index==0)
+				{
+					return this.chanceArr[0];
+				}
+				else{
+					return this.chanceArr[index]+this.getSum(index-1);
+				}
+			},
+			random:function(min,max){
+				// 包括min不包括max
+				return Math.floor(min+Math.random()*(max-min));
+			}
+		}
+		var key=1;
+		//var chanceArr=[1,2,3,4,10,80];  // 区域中奖概率百分比。(此时值表达的含义为：六个区域，第一个区域1%，第二个区域%2。。。第6个区域80%)
+		//var offset=30;					// 转盘便宜量(此时值表达的含义为：将转盘旋转30°，第一区域左边线与12点位置重合)
+		var index,rotate,rotateNow;
+		
+		zp.newClass(chanceArr,offset,function(){
+		 alert(this.index+1+"等奖");
+		});
+	</script>
+</html>

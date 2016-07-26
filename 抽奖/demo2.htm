@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>抽奖页面2</title>
+	<link rel="stylesheet" type="text/css" href="turnTable.css" />
+</head>
+<body>
+	
+	<div id="divZp" >
+		<img  src="table4.png" alt=" " />
+	</div>
+	
+</body>
+	<script src="turnTable.js" ></script>
+	<script>
+		var chanceArr=[1,4,5,90];  		// 设置区域模块与各区域中奖概率百分比。(此时值表达的含义为：六个区域，选中第一个区域概率为1%，选中第二个区域%4。。。选中第4个区域90%)
+		var offset=0;					// 转盘便宜量(此时值表达的含义为：将转盘旋转0°，第一区域左边线与12点位置重合)
+		function callback(index){		// 回调函数，参数为转盘停止后的区域，默认从1开始。
+			alert("选中第"+(index+1)+"区域");
+		}
+		turnTable.newClass(chanceArr,offset,callback);
+	</script>
+</html>

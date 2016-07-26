@@ -1,0 +1,5 @@
+﻿*{margin: 0;padding: 0;}
+#divZp{width:300px;height:300px;margin:100px auto;position:relative;}
+#divZp img{width:300px;height:300px;transform: rotate(1deg);}
+#divZp #divZ{width:2px;background:black;height:150px;left:149px;position:absolute;}
+#divZp a{  display: block;width: 100px;position: absolute;height: 100px;background: url(table_pointer.png);z-index: 999; left: 40px; top: 40px;}

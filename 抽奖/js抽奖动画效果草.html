@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .wrap {
+            width: 480px;
+            height: 480px;
+            border: 1px solid #f00;
+            margin: 30px auto
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            line-height: 150px;
+            background: #fcaa59;
+            float: left;
+            margin: 5px;
+            display: inline
+        }
+
+        .prize {
+            background: #f22389;
+			cursor: pointer;
+        }
+		#select{background:blue}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box">iphone</div>
+    <div class="box">谢谢惠顾</div>
+    <div class="box">MP3</div>
+    <div class="box">MP4</div>
+    <div class="box prize" id="prize">点击抽奖</div>
+    <div class="box">单反</div>
+    <div class="box">再接再厉</div>
+    <div class="box">幸运奖</div>
+    <div class="box">耳机</div>
+</div>
+</body>
+</html>
+<script>
+    var oPrz = document.getElementById("prize");
+	var divArray=getElesByClassName("box");
+	var divArr=[0,1,2,5,8,7,6,3];
+	
+	for(var i=0;i<divArr.length;i++)
+	{
+		divArr[i]=divArray[divArr[i]];
+	}
+	oPrz.seldiv=-1;
+	oPrz.timer=null;
+    function timedMsg() {
+		if(!(oPrz.timeout>500))
+		{	
+			oPrz.seldiv=oPrz.seldiv==divArr.length-1?0:oPrz.seldiv+1;
+			document.getElementById("select")?document.getElementById("select").id=" ":void(0);
+			divArr[oPrz.seldiv].id="select";
+			oPrz.ran+=0.5;
+			oPrz.timeout=(3*oPrz.ran*oPrz.ran+40);   // 二次函数 
+			oPrz.timer=window.setTimeout(timedMsg,oPrz.timeout);
+		}else{
+			window.clearTimeout(oPrz.timer);
+			alert("抽奖结果:"+divArr[oPrz.seldiv].innerHTML);
+		}
+    }
+    oPrz.onclick = function () {
+		
+		// 生成一个4~6间的随机整数取负值
+		oPrz.ran=-1*(parseInt(Math.random()*4+6));
+		oPrz.timeout=0;
+		window.clearTimeout(oPrz.timer);
+		oPrz.timer=window.setTimeout(timedMsg,10);
+    }
+	
+	// 根据classname获取元素集合
+	function getElesByClassName(className)
+	{
+		if(document.getElementsByClassName)
+		{
+			return document.getElementsByClassName(className);
+		}
+		else{
+			var eleArr=[];
+			var eles=document.getElementsByTagName("*");
+			for(var i =0;i<eles.length;i++)
+			{
+				if( new RegExp(className).test(eles[i]["className"]))
+				{
+					eleArr.push(eles[i]);
+				}
+			}
+			return eleArr;
+		}
+	}
+</script>

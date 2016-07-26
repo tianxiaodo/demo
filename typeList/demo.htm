@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+ <head></head>
+ <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1.0, maximum-scale=1, user-scalable=no,minimal-ui">
+ <link href="typeList.css" rel="stylesheet"/>
+<style>
+		#ob{width:94px;height:100px;margin:0 auto;background:#F0EEEE;position:absolute;left:161px}
+</style>
+ <body>
+ <div id="ob"></div>
+ <div id="ddd" style="width:300px;height:100%;margin:0 auto;"> </div>
+  <!--<div class="white_box" id="white_box"> 
+   <ul class="type_list "> 
+    <li class="activeli"> 
+		<img src="http://i1.yongche.name/media/g1/M00/00/35/rBAApVUI84mIELWwAAASRlhvjW0AAAUsAP_6d8AABJe912.png?1429040880" alt="" /> 
+		<span>沃尔沃</span> 
+	</li> 
+    <li> 
+		<img src="http://i3.yongche.name/media/g1/M00/00/1F/rBAApVTTUHaISNrxAAAWVK3H0xkAAAMIAC2kyMAABZs735.png?1429040880" alt="" /> 
+		<span>Tesla</span> 
+	</li>
+    <li > 
+		<img src="http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTT8WIXvMKAAAP5jwUPlUAAAMIACt32MAAA_-927.png?1429040880" alt="" /> 
+		<span>经济</span> 
+	</li>
+    <li > 
+		<img src="http://i1.yongche.name/media/g1/M00/00/1F/rBAArVTTT9WIRTJbAAARNt8SQIYAAAMIACuzL4AABFO474.png?1429040880" alt="" /> 
+		<span>舒适</span> 
+	</li>
+    <li> 
+		<img src="http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTUCiIdSw_AAASM2Wq2EoAAAMIAC1I2MAABJL710.png?1429040880" alt="" /> 
+		<span>商务</span> 
+	</li>
+    <li> 
+		<img src="http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTT-yIISj2AAASgq_f_A8AAAMIACvaaUAABKa338.png?1429040880" alt="" /> 
+		<span class="block">豪华</span> 
+	</li>
+    <li> 
+		<img src="http://i2.yongche.name/media/g1/M00/00/1F/rBAApVTTUBWIFFnaAAATDM5ONOQAAAMIACyk20AABMk499.png?1429040880" alt="" /> 
+		<span>奢华</span> 
+	</li>
+   </ul> 
+  </div>-->
+ </body>
+	<script src="typeList.js"></script>
+	<script type="text/javascript">
+		var ob=document.getElementById("ob");
+		ob.style["left"]=(window.innerWidth-parseInt(getComputedStyle(ob)["width"]))/2 +"px";
+		var cars={
+				沃尔沃:"http://i1.yongche.name/media/g1/M00/00/35/rBAApVUI84mIELWwAAASRlhvjW0AAAUsAP_6d8AABJe912.png",
+				Tesla:"http://i3.yongche.name/media/g1/M00/00/1F/rBAApVTTUHaISNrxAAAWVK3H0xkAAAMIAC2kyMAABZs735.png",
+				经济:"http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTT8WIXvMKAAAP5jwUPlUAAAMIACt32MAAA_-927.png",
+				舒适:"http://i1.yongche.name/media/g1/M00/00/1F/rBAArVTTT9WIRTJbAAARNt8SQIYAAAMIACuzL4AABFO474.png",
+				商务:"http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTUCiIdSw_AAASM2Wq2EoAAAMIAC1I2MAABJL710.png?1429040880",
+				豪华:"http://i2.yongche.name/media/g1/M00/00/1F/rBAArVTTT-yIISj2AAASgq_f_A8AAAMIACvaaUAABKa338.png?1429040880",
+				奢华:"http://i2.yongche.name/media/g1/M00/00/1F/rBAApVTTUBWIFFnaAAATDM5ONOQAAAMIACyk20AABMk499.png?1429040880"
+		}
+		
+		//typeList.newClass();   	   // 手动构建html结构
+		//typeList.newClass(cars);     // 默认创建html结构到body下
+		typeList.newClass(cars,ddd);   // 默认创建html结构到ddd元素下
+	</script>
+</html>

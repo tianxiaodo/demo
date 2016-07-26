@@ -1,0 +1,9 @@
+	*{margin:0;padding:0;}
+	.white_box{width:100%;height:70px;position:relative;overflow:hidden;}
+	.white_box .type_list{display:block;height:100%;}
+	.white_box .type_list li{padding: 3px;display: block;float: left;box-sizing: border-box;  margin-top: 5px;}
+	.white_box .type_list li img{width: 88px;height: 31px;}
+	.white_box .type_list li span{  display: block;width: 100%;text-align: center;font-size: 0.4em;color: gray;}
+	.white_box .type_list .activeli{margin-top:0px;}
+	.white_box .type_list .activeli img{height: 40px;}
+	.white_box .type_list .activeli span{color:red;}
